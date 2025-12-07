@@ -3,13 +3,18 @@ package com.shivamSinghal.elms.model;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class EmployeePersonalInfo {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int employeeId;
 	private String fname;
 	private String lname;
@@ -25,6 +30,18 @@ public class EmployeePersonalInfo {
 	@OneToMany(mappedBy = "employee")
 	private List<EmployeeProjectInfo> employeeProjectInfo;
 	
+	@OneToOne(mappedBy = "employeePersonalInfo")
+	private EmployeeLoginInfo employeeLoginInfo;
+	
+	@OneToOne(mappedBy= "employeePersonalInfo")
+	private List<EmployeeLeaveInfo> employeeLeaveInfos;
+	
+	@OneToMany(mappedBy = "employeePersonalInfo")
+	private List<EmployeeLeaveTracker> employeeLeaveTracker;
+	
+	public EmployeePersonalInfo() {
+		
+	}
 	
 	public EmployeePersonalInfo(int employeeId, String fname, String lname, String phone, String personalEmail,
 			String fatherName, String motherName, String homeAddress, String status, int delFlg, String baseLocation) {

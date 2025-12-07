@@ -1,37 +1,72 @@
 package com.shivamSinghal.elms.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+
+@Entity
 public class EmployeeLeaveInfo {
-	private int employeeId;
-	private int leaveId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	@ManyToOne
+	@JoinColumn(name="employee_id",referencedColumnName = "employeeId")
+	private EmployeePersonalInfo employeePersonalInfo;
+	
+	@OneToOne
+	@JoinColumn(name="leave_id",referencedColumnName = "leaveId")
+	private CompanyLeaveType companyLeaveType;
+	
 	private int leaveCount;
-	public EmployeeLeaveInfo(int employeeId, int leaveId, int leaveCount) {
+	
+		
+	public EmployeeLeaveInfo(int id, EmployeePersonalInfo employeePersonalInfo, CompanyLeaveType companyLeaveType, int leaveCount) {
 		super();
-		this.employeeId = employeeId;
-		this.leaveId = leaveId;
+		this.id = id;
+		this.employeePersonalInfo = employeePersonalInfo;
+		this.companyLeaveType = companyLeaveType;
 		this.leaveCount = leaveCount;
 	}
-	public int getEmployeeId() {
-		return employeeId;
+	
+	public int getId() {
+		return id;
 	}
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
+
+	public void setId(int id) {
+		this.id = id;
 	}
-	public int getLeaveId() {
-		return leaveId;
+
+	public EmployeePersonalInfo getEmployeePersonalInfo() {
+		return employeePersonalInfo;
 	}
-	public void setLeaveId(int leaveId) {
-		this.leaveId = leaveId;
+
+	public void setEmployeePersonalInfo(EmployeePersonalInfo employee) {
+		this.employeePersonalInfo = employee;
 	}
+
+	public CompanyLeaveType getCompanyLeaveType() {
+		return companyLeaveType;
+	}
+
+	public void setCompanyLeaveType(CompanyLeaveType leave) {
+		this.companyLeaveType = companyLeaveType;
+	}
+
 	public int getLeaveCount() {
 		return leaveCount;
 	}
 	public void setLeaveCount(int leaveCount) {
 		this.leaveCount = leaveCount;
 	}
+
 	@Override
 	public String toString() {
-		return "EmployeeLeaveInfo [employeeId=" + employeeId + ", leaveId=" + leaveId + ", leaveCount=" + leaveCount
-				+ "]";
+		return "EmployeeLeaveInfo [id=" + id + ", leaveCount=" + leaveCount + "]";
 	}
 	
 	

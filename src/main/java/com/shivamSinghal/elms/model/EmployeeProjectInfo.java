@@ -3,6 +3,8 @@ package com.shivamSinghal.elms.model;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -11,23 +13,28 @@ import jakarta.persistence.ManyToOne;
 public class EmployeeProjectInfo {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@ManyToOne
-	@JoinColumn(name="employeeId")
+	@JoinColumn(name = "employee_id", referencedColumnName = "employeeId")
 	private EmployeePersonalInfo employee;
 	
 	@ManyToOne
-	@JoinColumn(name="projectId")
+	@JoinColumn(name = "project_id", referencedColumnName = "projectId")
 	private CompanyProjectInfo project;
 	
 	@ManyToOne
-	@JoinColumn(name="roleId")
+	@JoinColumn(name = "role_id", referencedColumnName = "roleId")
 	private CompanyRole role;
 	
 	private int delFlg;
 	private Date assignmentStartDate;
 	private Date assignmentEndDate;
+	
+	public EmployeeProjectInfo() {
+		
+	}
 	
 	public EmployeeProjectInfo(int id, EmployeePersonalInfo employee, CompanyProjectInfo project, CompanyRole role, int delFlg, Date assignmentStartDate,
 			Date assignmentEndDate) {

@@ -3,6 +3,8 @@ package com.shivamSinghal.elms.model;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
@@ -10,11 +12,16 @@ import jakarta.persistence.OneToMany;
 public class CompanyRole {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int roleId;
 	private String roleName;
 	
 	@OneToMany(mappedBy = "role")
 	private List<EmployeeProjectInfo> employeeProjectInfo;
+	
+	public CompanyRole() {
+		
+	}
 	
 	public CompanyRole(int roleId, String roleName) {
 		super();

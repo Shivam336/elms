@@ -2,26 +2,48 @@ package com.shivamSinghal.elms.model;
 
 import java.util.Date;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+
+@Entity
 public class EmployeeLoginInfo {
-	private int employeeId;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	private String companyEmail;
 	private String password;
 	private Date passwordExpiryDate;
 	private int accountLocked;
-	public EmployeeLoginInfo(int employeeId, String companyEmail, String password, Date passwordExpiryDate,
-			int accountLocked) {
+	
+	@OneToOne
+	@JoinColumn(name="employee_Id", referencedColumnName ="employeeId")
+	private EmployeePersonalInfo employeePersonalInfo;
+	
+	
+	public EmployeeLoginInfo() {
+		
+	}
+	
+	public EmployeeLoginInfo(int id, String companyEmail, String password, Date passwordExpiryDate, int accountLocked,
+			EmployeePersonalInfo employeePersonalInfo) {
 		super();
-		this.employeeId = employeeId;
+		this.id = id;
 		this.companyEmail = companyEmail;
 		this.password = password;
 		this.passwordExpiryDate = passwordExpiryDate;
 		this.accountLocked = accountLocked;
+		this.employeePersonalInfo = employeePersonalInfo;
 	}
-	public int getEmployeeId() {
-		return employeeId;
+	public int getId() {
+		return id;
 	}
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getCompanyEmail() {
 		return companyEmail;
@@ -47,10 +69,19 @@ public class EmployeeLoginInfo {
 	public void setAccountLocked(int accountLocked) {
 		this.accountLocked = accountLocked;
 	}
+	
+	public EmployeePersonalInfo getEmployeePersonalInfo() {
+		return employeePersonalInfo;
+	}
+	public void setEmployeePersonalInfo(EmployeePersonalInfo employeePersonalInfo) {
+		this.employeePersonalInfo = employeePersonalInfo;
+	}
+	
 	@Override
 	public String toString() {
-		return "EmployeeLoginInfo [employeeId=" + employeeId + ", companyEmail=" + companyEmail + ", password="
-				+ password + ", passwordExpiryDate=" + passwordExpiryDate + ", accountLocked=" + accountLocked + "]";
+		return "EmployeeLoginInfo [id=" + id + ", companyEmail=" + companyEmail + ", password=" + password
+				+ ", passwordExpiryDate=" + passwordExpiryDate + ", accountLocked=" + accountLocked
+				+ ", employeePersonalInfo=" + employeePersonalInfo + "]";
 	}
 	
 	

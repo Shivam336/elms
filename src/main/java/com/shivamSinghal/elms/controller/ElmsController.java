@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.shivamSinghal.elms.model.Employee;
+
 
 @RestController
 @RequestMapping("/employeeCrud")
@@ -22,9 +22,9 @@ public class ElmsController {
 //		return employeeEmail+" - "+employeeFirstName+" - "+employeePassword;
 //	}
 	
-	@PostMapping(value= {"add"})
-	public String addEmployee(@RequestBody Employee employee) {
-		return employee.toString();
-	}
+//	@PostMapping(value= {"add"})
+//	public String addEmployee(@RequestBody Employee employee) {
+//		return employee.toString();
+//	}
 	
 }

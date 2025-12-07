@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
@@ -11,6 +13,7 @@ import jakarta.persistence.OneToMany;
 public class CompanyProjectInfo {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int projectId;
 	private String projectName;
 	private String projectLocation;
@@ -22,6 +25,10 @@ public class CompanyProjectInfo {
 	
 	@OneToMany(mappedBy = "project")
 	private List<EmployeeProjectInfo> employeeProjectInfo;
+	
+	public CompanyProjectInfo() {
+		
+	}
 	
 	public CompanyProjectInfo(int projectId, String projectName, String projectLocation, String projectCustomerName,
 			int projectAllocationNumber, Date projectStartDate, Date projectEndDate,
