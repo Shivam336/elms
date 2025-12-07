@@ -22,4 +22,14 @@ public class EmployeePersonalInfoDao {
 		return employeePersonalInfoJpaRepository.getByEmployeeId(employeeId);
 	}
 
+	public int updateEmployee(Integer employeeId, EmployeePersonalInfo employeePersonalInfo) {
+		int res=employeePersonalInfoJpaRepository.updateByEmployeeId(employeeId,employeePersonalInfo);
+		return res;
+	}
+
+	public int deleteEmployee(Integer employeeId) {
+		int res=employeePersonalInfoJpaRepository.deleteByEmployeeId(employeeId);
+		return res;
+	}
+
 }

@@ -31,7 +31,6 @@ public class EmployeePersonalInfo {
 	private int delFlg;
 	private String baseLocation;
 	
-	
 	@OneToMany(mappedBy = "employee")
 	private List<EmployeeProjectInfo> employeeProjectInfo;
 	

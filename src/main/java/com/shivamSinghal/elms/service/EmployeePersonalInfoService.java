@@ -22,4 +22,14 @@ public class EmployeePersonalInfoService {
 		return employeePersonalInfoService;
 	}
 
+	public int updateEmployee(Integer employeeId,EmployeePersonalInfo employeePersonalInfo) {
+		int employeePersonalInfoService = employeePersonalInfoDao.updateEmployee(employeeId,employeePersonalInfo);
+		return employeePersonalInfoService;
+	}
+
+	public int deleteEmployee(Integer employeeId) {
+		int employeePersonalInfoService = employeePersonalInfoDao.deleteEmployee(employeeId);
+		return employeePersonalInfoService;
+	}
+
 }
