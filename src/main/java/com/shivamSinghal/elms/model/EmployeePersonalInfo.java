@@ -2,6 +2,7 @@ package com.shivamSinghal.elms.model;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,13 +10,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class EmployeePersonalInfo {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int employeeId;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_id_sequence")
+	@SequenceGenerator(name="employee_id_sequence", sequenceName = "employee_id_sequence", allocationSize = 1)
+//	@Column(name="employee_id")
+	private Integer employeeId;
 	private String fname;
 	private String lname;
 	private String phone;
@@ -26,6 +30,7 @@ public class EmployeePersonalInfo {
 	private String status;
 	private int delFlg;
 	private String baseLocation;
+	
 	
 	@OneToMany(mappedBy = "employee")
 	private List<EmployeeProjectInfo> employeeProjectInfo;
@@ -43,7 +48,7 @@ public class EmployeePersonalInfo {
 		
 	}
 	
-	public EmployeePersonalInfo(int employeeId, String fname, String lname, String phone, String personalEmail,
+	public EmployeePersonalInfo(Integer employeeId, String fname, String lname, String phone, String personalEmail,
 			String fatherName, String motherName, String homeAddress, String status, int delFlg, String baseLocation) {
 		super();
 		this.employeeId = employeeId;
@@ -119,10 +124,10 @@ public class EmployeePersonalInfo {
 	public void setBaseLocation(String baseLocation) {
 		this.baseLocation = baseLocation;
 	}	
-	public int getEmployeeId() {
+	public Integer getEmployeeId() {
 		return employeeId;
 	}
-	public void setEmployeeId(int employeeId) {
+	public void setEmployeeId(Integer employeeId) {
 		this.employeeId = employeeId;
 	}
 	

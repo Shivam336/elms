@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/employeeCrud")
 public class ElmsController {
 	
-	@GetMapping(value={"","/","readAll"})
-	public String readAllEmployee() {
-		return "hello";
-	}
+//	@GetMapping(value={"","/","readAll"})
+//	public String readAllEmployee() {
+//		return "hello";
+//	}
 	
 //	@PostMapping(value= {"add"})
 //	public String addEmployee(@RequestParam(required = false) String employeeEmail,@RequestParam(required = false) String employeeFirstName, @RequestParam(required = false)String employeeLastName,@RequestParam(required = false) String employeePassword) {
