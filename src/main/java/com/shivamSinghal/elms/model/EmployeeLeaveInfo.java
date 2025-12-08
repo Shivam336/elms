@@ -25,11 +25,9 @@ public class EmployeeLeaveInfo {
 	private int leaveCount;
 	
 		
-	public EmployeeLeaveInfo(int id, EmployeePersonalInfo employeePersonalInfo, CompanyLeaveType companyLeaveType, int leaveCount) {
+	public EmployeeLeaveInfo(int id, int leaveCount) {
 		super();
 		this.id = id;
-		this.employeePersonalInfo = employeePersonalInfo;
-		this.companyLeaveType = companyLeaveType;
 		this.leaveCount = leaveCount;
 	}
 	
@@ -53,7 +51,7 @@ public class EmployeeLeaveInfo {
 		return companyLeaveType;
 	}
 
-	public void setCompanyLeaveType(CompanyLeaveType leave) {
+	public void setCompanyLeaveType(CompanyLeaveType companyLeaveType) {
 		this.companyLeaveType = companyLeaveType;
 	}
 

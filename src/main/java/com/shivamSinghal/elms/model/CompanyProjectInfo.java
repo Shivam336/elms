@@ -1,5 +1,6 @@
 package com.shivamSinghal.elms.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class CompanyProjectInfo {
 	private String projectStatus;
 	
 	@OneToMany(mappedBy = "project")
-	private List<EmployeeProjectInfo> employeeProjectInfo;
+	private List<EmployeeProjectInfo> employeeProjectInfo=new ArrayList<>();
 	
 	public CompanyProjectInfo() {
 		
@@ -93,6 +94,15 @@ public class CompanyProjectInfo {
 	public void setProjectStatus(String projectStatus) {
 		this.projectStatus = projectStatus;
 	}
+	
+	public List<EmployeeProjectInfo> getEmployeeProjectInfo() {
+		return employeeProjectInfo;
+	}
+
+	public void setEmployeeProjectInfo(List<EmployeeProjectInfo> employeeProjectInfo) {
+		this.employeeProjectInfo = employeeProjectInfo;
+	}
+
 	@Override
 	public String toString() {
 		return "CompanyProjectInfo [projectId=" + projectId + ", projectName=" + projectName + ", projectLocation="

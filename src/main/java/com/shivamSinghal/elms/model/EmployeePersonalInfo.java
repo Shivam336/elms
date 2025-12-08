@@ -1,5 +1,6 @@
 package com.shivamSinghal.elms.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -32,7 +33,7 @@ public class EmployeePersonalInfo {
 	private String baseLocation;
 	
 	@OneToMany(mappedBy = "employee")
-	private List<EmployeeProjectInfo> employeeProjectInfo;
+	private List<EmployeeProjectInfo> employeeProjectInfo=new ArrayList<>();
 	
 	@OneToOne(mappedBy = "employeePersonalInfo")
 	private EmployeeLoginInfo employeeLoginInfo;
@@ -41,7 +42,7 @@ public class EmployeePersonalInfo {
 	private List<EmployeeLeaveInfo> employeeLeaveInfos;
 	
 	@OneToMany(mappedBy = "employeePersonalInfo")
-	private List<EmployeeLeaveTracker> employeeLeaveTracker;
+	private List<EmployeeLeaveTracker> employeeLeaveTracker=new ArrayList<>();
 	
 	public EmployeePersonalInfo() {
 		
@@ -130,6 +131,40 @@ public class EmployeePersonalInfo {
 		this.employeeId = employeeId;
 	}
 	
+	
+	
+	public List<EmployeeProjectInfo> getEmployeeProjectInfo() {
+		return employeeProjectInfo;
+	}
+
+	public void setEmployeeProjectInfo(List<EmployeeProjectInfo> employeeProjectInfo) {
+		this.employeeProjectInfo = employeeProjectInfo;
+	}
+
+	public EmployeeLoginInfo getEmployeeLoginInfo() {
+		return employeeLoginInfo;
+	}
+
+	public void setEmployeeLoginInfo(EmployeeLoginInfo employeeLoginInfo) {
+		this.employeeLoginInfo = employeeLoginInfo;
+	}
+
+	public List<EmployeeLeaveInfo> getEmployeeLeaveInfos() {
+		return employeeLeaveInfos;
+	}
+
+	public void setEmployeeLeaveInfos(List<EmployeeLeaveInfo> employeeLeaveInfos) {
+		this.employeeLeaveInfos = employeeLeaveInfos;
+	}
+
+	public List<EmployeeLeaveTracker> getEmployeeLeaveTracker() {
+		return employeeLeaveTracker;
+	}
+
+	public void setEmployeeLeaveTracker(List<EmployeeLeaveTracker> employeeLeaveTracker) {
+		this.employeeLeaveTracker = employeeLeaveTracker;
+	}
+
 	@Override
 	public String toString() {
 		return "EmployeePersonalInfo [employeeId=" + employeeId + ", fname=" + fname + ", lname=" + lname + ", phone="

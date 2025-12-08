@@ -38,13 +38,11 @@ public class EmployeeLeaveTracker
 	}
 	
 	
-	public EmployeeLeaveTracker(int id, EmployeePersonalInfo employeePersonalInfo, CompanyLeaveType companyLeaveType,
+	public EmployeeLeaveTracker(int id,
 			int daysRequested, String leaveApprovalStatus, Date leaveStartDate, Date leaveEndDate, String reason,
 			Date requestDate, Date approvalDate) {
 		super();
 		this.id = id;
-		this.employeePersonalInfo = employeePersonalInfo;
-		this.companyLeaveType = companyLeaveType;
 		this.daysRequested = daysRequested;
 		this.leaveApprovalStatus = leaveApprovalStatus;
 		this.leaveStartDate = leaveStartDate;

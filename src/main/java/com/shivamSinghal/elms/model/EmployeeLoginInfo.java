@@ -29,15 +29,13 @@ public class EmployeeLoginInfo {
 		
 	}
 	
-	public EmployeeLoginInfo(int id, String companyEmail, String password, Date passwordExpiryDate, int accountLocked,
-			EmployeePersonalInfo employeePersonalInfo) {
+	public EmployeeLoginInfo(int id, String companyEmail, String password, Date passwordExpiryDate, int accountLocked) {
 		super();
 		this.id = id;
 		this.companyEmail = companyEmail;
 		this.password = password;
 		this.passwordExpiryDate = passwordExpiryDate;
 		this.accountLocked = accountLocked;
-		this.employeePersonalInfo = employeePersonalInfo;
 	}
 	public int getId() {
 		return id;
@@ -80,8 +78,7 @@ public class EmployeeLoginInfo {
 	@Override
 	public String toString() {
 		return "EmployeeLoginInfo [id=" + id + ", companyEmail=" + companyEmail + ", password=" + password
-				+ ", passwordExpiryDate=" + passwordExpiryDate + ", accountLocked=" + accountLocked
-				+ ", employeePersonalInfo=" + employeePersonalInfo + "]";
+				+ ", passwordExpiryDate=" + passwordExpiryDate + ", accountLocked=" + accountLocked + "]";
 	}
 	
 	

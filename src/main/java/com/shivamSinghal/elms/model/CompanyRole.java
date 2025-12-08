@@ -40,6 +40,15 @@ public class CompanyRole {
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
 	}
+	
+	public List<EmployeeProjectInfo> getEmployeeProjectInfo() {
+		return employeeProjectInfo;
+	}
+
+	public void setEmployeeProjectInfo(List<EmployeeProjectInfo> employeeProjectInfo) {
+		this.employeeProjectInfo = employeeProjectInfo;
+	}
+
 	@Override
 	public String toString() {
 		return "CompanyRole [roleId=" + roleId + ", roleName=" + roleName + "]";
