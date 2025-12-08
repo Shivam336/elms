@@ -8,13 +8,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class CompanyProjectInfo {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int projectId;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "project_id_sequence")
+	@SequenceGenerator(name = "project_id_sequence", sequenceName = "project_id_sequence", allocationSize = 1)
+	private Integer projectId;
 	private String projectName;
 	private String projectLocation;
 	private String projectCustomerName;
@@ -30,7 +32,7 @@ public class CompanyProjectInfo {
 		
 	}
 	
-	public CompanyProjectInfo(int projectId, String projectName, String projectLocation, String projectCustomerName,
+	public CompanyProjectInfo(Integer projectId, String projectName, String projectLocation, String projectCustomerName,
 			int projectAllocationNumber, Date projectStartDate, Date projectEndDate,
 			String projectStatus) {
 		super();
@@ -43,10 +45,10 @@ public class CompanyProjectInfo {
 		this.projectEndDate = projectEndDate;
 		this.projectStatus = projectStatus;
 	}
-	public int getProjectId() {
+	public Integer getProjectId() {
 		return projectId;
 	}
-	public void setProjectId(int projectId) {
+	public void setProjectId(Integer projectId) {
 		this.projectId = projectId;
 	}
 	public String getProjectName() {

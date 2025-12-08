@@ -19,6 +19,10 @@ public class EmployeePersonalInfoCustomQueries {
 	        "UPDATE EmployeePersonalInfo SET " +
 	        "delFlg = 1" +
 	        "WHERE employeeId = :employeeId";
+	
+	public EmployeePersonalInfoCustomQueries() {
+		
+	}
 			
 				
 }
