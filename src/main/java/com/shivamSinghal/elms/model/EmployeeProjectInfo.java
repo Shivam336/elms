@@ -1,43 +1,47 @@
 package com.shivamSinghal.elms.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class EmployeeProjectInfo {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_project_info_sequence")
+	@SequenceGenerator(name="employee_project_info_sequence", sequenceName = "employee_project_info_sequence", allocationSize = 1)
+	private Integer id;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "employee_id", referencedColumnName = "employeeId")
 	private EmployeePersonalInfo employee;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "project_id", referencedColumnName = "projectId")
 	private CompanyProjectInfo project;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "role_id", referencedColumnName = "roleId")
 	private CompanyRole role;
 	
-	private int delFlg;
-	private Date assignmentStartDate;
-	private Date assignmentEndDate;
+	private Integer delFlg;
+	private LocalDateTime assignmentStartDate;
+	private LocalDateTime assignmentEndDate;
 	
 	public EmployeeProjectInfo() {
 		
 	}
 	
-	public EmployeeProjectInfo(int id, EmployeePersonalInfo employee, CompanyProjectInfo project, CompanyRole role, int delFlg, Date assignmentStartDate,
-			Date assignmentEndDate) {
+	public EmployeeProjectInfo(Integer id, EmployeePersonalInfo employee, CompanyProjectInfo project, CompanyRole role, Integer delFlg, LocalDateTime assignmentStartDate,
+			LocalDateTime assignmentEndDate) {
 		super();
 		this.id = id;
 		this.employee = employee;
@@ -48,10 +52,10 @@ public class EmployeeProjectInfo {
 		this.assignmentEndDate = assignmentEndDate;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}	
 	public EmployeePersonalInfo getEmployee() {
@@ -77,22 +81,22 @@ public class EmployeeProjectInfo {
 	public void setRole(CompanyRole role) {
 		this.role = role;
 	}
-	public int getDelFlg() {
+	public Integer getDelFlg() {
 		return delFlg;
 	}
-	public void setDelFlg(int delFlg) {
+	public void setDelFlg(Integer delFlg) {
 		this.delFlg = delFlg;
 	}
-	public Date getAssignmentStartDate() {
+	public LocalDateTime getAssignmentStartDate() {
 		return assignmentStartDate;
 	}
-	public void setAssignmentStartDate(Date assignmentStartDate) {
+	public void setAssignmentStartDate(LocalDateTime assignmentStartDate) {
 		this.assignmentStartDate = assignmentStartDate;
 	}
-	public Date getAssignmentEndDate() {
+	public LocalDateTime getAssignmentEndDate() {
 		return assignmentEndDate;
 	}
-	public void setAssignmentEndDate(Date assignmentEndDate) {
+	public void setAssignmentEndDate(LocalDateTime assignmentEndDate) {
 		this.assignmentEndDate = assignmentEndDate;
 	}
 	
