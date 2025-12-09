@@ -1,5 +1,6 @@
 package com.shivamSinghal.elms.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
@@ -17,7 +18,7 @@ public class EmployeeLoginInfo {
 	private int id;
 	private String companyEmail;
 	private String password;
-	private Date passwordExpiryDate;
+	private LocalDate passwordExpiryDate;
 	private int accountLocked;
 	
 	@OneToOne
@@ -29,7 +30,7 @@ public class EmployeeLoginInfo {
 		
 	}
 	
-	public EmployeeLoginInfo(int id, String companyEmail, String password, Date passwordExpiryDate, int accountLocked) {
+	public EmployeeLoginInfo(int id, String companyEmail, String password, LocalDate passwordExpiryDate, int accountLocked) {
 		super();
 		this.id = id;
 		this.companyEmail = companyEmail;
@@ -55,10 +56,10 @@ public class EmployeeLoginInfo {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Date getPasswordExpiryDate() {
+	public LocalDate getPasswordExpiryDate() {
 		return passwordExpiryDate;
 	}
-	public void setPasswordExpiryDate(Date passwordExpiryDate) {
+	public void setPasswordExpiryDate(LocalDate passwordExpiryDate) {
 		this.passwordExpiryDate = passwordExpiryDate;
 	}
 	public int getAccountLocked() {

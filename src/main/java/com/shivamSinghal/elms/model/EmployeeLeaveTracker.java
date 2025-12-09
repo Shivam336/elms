@@ -1,5 +1,6 @@
 package com.shivamSinghal.elms.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import jakarta.persistence.Entity;
@@ -27,11 +28,11 @@ public class EmployeeLeaveTracker
 	
 	private int daysRequested;
 	private String leaveApprovalStatus;
-	private Date leaveStartDate;
-	private Date leaveEndDate;
+	private LocalDate leaveStartDate;
+	private LocalDate leaveEndDate;
 	private String reason;
-	private Date requestDate;
-	private Date approvalDate;
+	private LocalDate requestDate;
+	private LocalDate approvalDate;
 	
 	public EmployeeLeaveTracker() {
 		
@@ -39,8 +40,8 @@ public class EmployeeLeaveTracker
 	
 	
 	public EmployeeLeaveTracker(int id,
-			int daysRequested, String leaveApprovalStatus, Date leaveStartDate, Date leaveEndDate, String reason,
-			Date requestDate, Date approvalDate) {
+			int daysRequested, String leaveApprovalStatus, LocalDate leaveStartDate, LocalDate leaveEndDate, String reason,
+			LocalDate requestDate, LocalDate approvalDate) {
 		super();
 		this.id = id;
 		this.daysRequested = daysRequested;
@@ -105,22 +106,22 @@ public class EmployeeLeaveTracker
 	}
 
 
-	public Date getLeaveStartDate() {
+	public LocalDate getLeaveStartDate() {
 		return leaveStartDate;
 	}
 
 
-	public void setLeaveStartDate(Date leaveStartDate) {
+	public void setLeaveStartDate(LocalDate leaveStartDate) {
 		this.leaveStartDate = leaveStartDate;
 	}
 
 
-	public Date getLeaveEndDate() {
+	public LocalDate getLeaveEndDate() {
 		return leaveEndDate;
 	}
 
 
-	public void setLeaveEndDate(Date leaveEndDate) {
+	public void setLeaveEndDate(LocalDate leaveEndDate) {
 		this.leaveEndDate = leaveEndDate;
 	}
 
@@ -135,22 +136,22 @@ public class EmployeeLeaveTracker
 	}
 
 
-	public Date getRequestDate() {
+	public LocalDate getRequestDate() {
 		return requestDate;
 	}
 
 
-	public void setRequestDate(Date requestDate) {
+	public void setRequestDate(LocalDate requestDate) {
 		this.requestDate = requestDate;
 	}
 
 
-	public Date getApprovalDate() {
+	public LocalDate getApprovalDate() {
 		return approvalDate;
 	}
 
 
-	public void setApprovalDate(Date approvalDate) {
+	public void setApprovalDate(LocalDate approvalDate) {
 		this.approvalDate = approvalDate;
 	}
 

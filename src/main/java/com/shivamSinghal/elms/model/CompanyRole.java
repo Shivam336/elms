@@ -17,7 +17,7 @@ public class CompanyRole {
 	@SequenceGenerator(name = "company_role_sequence", sequenceName = "company_role_sequence", allocationSize = 1)
 	private Integer roleId;
 	private String roleName;
-	private int delFlg;
+	private Integer delFlg;
 	
 	@OneToMany(mappedBy = "role")
 	private List<EmployeeProjectInfo> employeeProjectInfo;
@@ -27,7 +27,7 @@ public class CompanyRole {
 	}
 	
 	
-	public CompanyRole(Integer roleId, String roleName, int delFlg) {
+	public CompanyRole(Integer roleId, String roleName, Integer delFlg) {
 		super();
 		this.roleId = roleId;
 		this.roleName = roleName;
@@ -51,12 +51,12 @@ public class CompanyRole {
 	
 	
 	
-	public int getDelFlg() {
+	public Integer getDelFlg() {
 		return delFlg;
 	}
 
 
-	public void setDelFlg(int delFlg) {
+	public void setDelFlg(Integer delFlg) {
 		this.delFlg = delFlg;
 	}
 

@@ -29,7 +29,7 @@ public class EmployeePersonalInfo {
 	private String motherName;
 	private String homeAddress;
 	private String status;
-	private int delFlg;
+	private Integer delFlg;
 	private String baseLocation;
 	
 	@OneToMany(mappedBy = "employee")
@@ -49,7 +49,7 @@ public class EmployeePersonalInfo {
 	}
 	
 	public EmployeePersonalInfo(Integer employeeId, String fname, String lname, String phone, String personalEmail,
-			String fatherName, String motherName, String homeAddress, String status, int delFlg, String baseLocation) {
+			String fatherName, String motherName, String homeAddress, String status, Integer delFlg, String baseLocation) {
 		super();
 		this.employeeId = employeeId;
 		this.fname = fname;
@@ -112,10 +112,10 @@ public class EmployeePersonalInfo {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public int getDelFlg() {
+	public Integer getDelFlg() {
 		return delFlg;
 	}
-	public void setDelFlg(int delFlg) {
+	public void setDelFlg(Integer delFlg) {
 		this.delFlg = delFlg;
 	}
 	public String getBaseLocation() {

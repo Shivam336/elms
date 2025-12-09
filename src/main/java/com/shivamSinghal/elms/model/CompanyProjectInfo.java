@@ -1,5 +1,6 @@
 package com.shivamSinghal.elms.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,9 +22,9 @@ public class CompanyProjectInfo {
 	private String projectName;
 	private String projectLocation;
 	private String projectCustomerName;
-	private int projectAllocationNumber;
-	private Date projectStartDate;
-	private Date projectEndDate;
+	private Integer projectAllocationNumber;
+	private LocalDate projectStartDate;
+	private LocalDate projectEndDate;
 	private String projectStatus;
 	
 	@OneToMany(mappedBy = "project")
@@ -34,7 +35,7 @@ public class CompanyProjectInfo {
 	}
 	
 	public CompanyProjectInfo(Integer projectId, String projectName, String projectLocation, String projectCustomerName,
-			int projectAllocationNumber, Date projectStartDate, Date projectEndDate,
+			Integer projectAllocationNumber, LocalDate projectStartDate, LocalDate projectEndDate,
 			String projectStatus) {
 		super();
 		this.projectId = projectId;
@@ -70,22 +71,22 @@ public class CompanyProjectInfo {
 	public void setProjectCustomerName(String projectCustomerName) {
 		this.projectCustomerName = projectCustomerName;
 	}
-	public int getProjectAllocationNumber() {
+	public Integer getProjectAllocationNumber() {
 		return projectAllocationNumber;
 	}
-	public void setProjectAllocationNumber(int projectAllocationNumber) {
+	public void setProjectAllocationNumber(Integer projectAllocationNumber) {
 		this.projectAllocationNumber = projectAllocationNumber;
 	}
-	public Date getProjectStartDate() {
+	public LocalDate getProjectStartDate() {
 		return projectStartDate;
 	}
-	public void setProjectStartDate(Date projectStartDate) {
+	public void setProjectStartDate(LocalDate projectStartDate) {
 		this.projectStartDate = projectStartDate;
 	}
-	public Date getProjectEndDate() {
+	public LocalDate getProjectEndDate() {
 		return projectEndDate;
 	}
-	public void setProjectEndDate(Date projectEndDate) {
+	public void setProjectEndDate(LocalDate projectEndDate) {
 		this.projectEndDate = projectEndDate;
 	}
 	public String getProjectStatus() {
