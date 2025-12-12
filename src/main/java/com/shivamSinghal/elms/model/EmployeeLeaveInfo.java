@@ -6,36 +6,48 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
+@Table(
+	    uniqueConstraints = {
+	        @UniqueConstraint(columnNames = {"employee_id", "leave_id"})
+	    }
+	)
+
 public class EmployeeLeaveInfo {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "employee_leave_info_sequence")
+	@SequenceGenerator(name="employee_leave_info_sequence", sequenceName = "employee_leave_info_sequence", allocationSize = 1)
+	private Integer id;
+	
+	private Integer leaveCount;
+	
+	@ManyToOne
+	@JoinColumn(name="leave_id",referencedColumnName = "leaveId")
+	private CompanyLeaveType companyLeaveType;
 	
 	@ManyToOne
 	@JoinColumn(name="employee_id",referencedColumnName = "employeeId")
 	private EmployeePersonalInfo employeePersonalInfo;
 	
-	@OneToOne
-	@JoinColumn(name="leave_id",referencedColumnName = "leaveId")
-	private CompanyLeaveType companyLeaveType;
-	
-	private int leaveCount;
-	
+	public EmployeeLeaveInfo() {
 		
-	public EmployeeLeaveInfo(int id, int leaveCount) {
+	}
+	
+	public EmployeeLeaveInfo(Integer id, Integer leaveCount) {
 		super();
 		this.id = id;
 		this.leaveCount = leaveCount;
 	}
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -55,10 +67,10 @@ public class EmployeeLeaveInfo {
 		this.companyLeaveType = companyLeaveType;
 	}
 
-	public int getLeaveCount() {
+	public Integer getLeaveCount() {
 		return leaveCount;
 	}
-	public void setLeaveCount(int leaveCount) {
+	public void setLeaveCount(Integer leaveCount) {
 		this.leaveCount = leaveCount;
 	}
 

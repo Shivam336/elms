@@ -24,8 +24,8 @@ public class CompanyLeaveType {
 	private String leaveCategory;
 	private int delFlg;
 	
-	@OneToOne(mappedBy = "companyLeaveType")
-	private EmployeeLeaveInfo employeeLeaveInfo;
+	@OneToMany(mappedBy = "companyLeaveType")
+	private List<EmployeeLeaveInfo> employeeLeaveInfo=new ArrayList<>();
 	
 	@OneToMany(mappedBy = "companyLeaveType")
 	private List<EmployeeLeaveTracker> employeeLeaveTracker=new ArrayList<>();
@@ -89,11 +89,11 @@ public class CompanyLeaveType {
 		this.leaveCategory = leaveCategory;
 	}
 
-	public EmployeeLeaveInfo getEmployeeLeaveInfo() {
+	public List<EmployeeLeaveInfo> getEmployeeLeaveInfo() {
 		return employeeLeaveInfo;
 	}
 
-	public void setEmployeeLeaveInfo(EmployeeLeaveInfo employeeLeaveInfo) {
+	public void setEmployeeLeaveInfo(List<EmployeeLeaveInfo> employeeLeaveInfo) {
 		this.employeeLeaveInfo = employeeLeaveInfo;
 	}
 
