@@ -38,7 +38,7 @@ public class EmployeePersonalInfo {
 	@OneToOne(mappedBy = "employeePersonalInfo")
 	private EmployeeLoginInfo employeeLoginInfo;
 	
-	@OneToOne(mappedBy= "employeePersonalInfo")
+	@OneToMany(mappedBy= "employeePersonalInfo")
 	private List<EmployeeLeaveInfo> employeeLeaveInfos;
 	
 	@OneToMany(mappedBy = "employeePersonalInfo")

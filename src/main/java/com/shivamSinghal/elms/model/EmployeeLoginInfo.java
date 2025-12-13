@@ -1,25 +1,25 @@
 package com.shivamSinghal.elms.model;
 
-import java.time.LocalDate;
-import java.util.Date;
-
+import java.time.LocalDateTime;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class EmployeeLoginInfo {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_login_info_sequence")
+	@SequenceGenerator(name = "employee_login_info_sequence", sequenceName = "employee_login_info_sequence", allocationSize = 1)
+	private Integer id;
 	private String companyEmail;
 	private String password;
-	private LocalDate passwordExpiryDate;
-	private int accountLocked;
+	private LocalDateTime passwordExpiryDate;
+	private Integer accountLocked;
 	
 	@OneToOne
 	@JoinColumn(name="employee_Id", referencedColumnName ="employeeId")
@@ -30,7 +30,7 @@ public class EmployeeLoginInfo {
 		
 	}
 	
-	public EmployeeLoginInfo(int id, String companyEmail, String password, LocalDate passwordExpiryDate, int accountLocked) {
+	public EmployeeLoginInfo(Integer id, String companyEmail, String password, LocalDateTime passwordExpiryDate, Integer accountLocked) {
 		super();
 		this.id = id;
 		this.companyEmail = companyEmail;
@@ -38,10 +38,10 @@ public class EmployeeLoginInfo {
 		this.passwordExpiryDate = passwordExpiryDate;
 		this.accountLocked = accountLocked;
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getCompanyEmail() {
@@ -56,16 +56,16 @@ public class EmployeeLoginInfo {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public LocalDate getPasswordExpiryDate() {
+	public LocalDateTime getPasswordExpiryDate() {
 		return passwordExpiryDate;
 	}
-	public void setPasswordExpiryDate(LocalDate passwordExpiryDate) {
+	public void setPasswordExpiryDate(LocalDateTime passwordExpiryDate) {
 		this.passwordExpiryDate = passwordExpiryDate;
 	}
-	public int getAccountLocked() {
+	public Integer getAccountLocked() {
 		return accountLocked;
 	}
-	public void setAccountLocked(int accountLocked) {
+	public void setAccountLocked(Integer accountLocked) {
 		this.accountLocked = accountLocked;
 	}
 	
