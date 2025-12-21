@@ -29,4 +29,7 @@ public interface EmployeeLoginInfoJPARepository extends JpaRepository<EmployeeLo
 	@Query(value =EmployeeLoginInfoCustomQueries.DELETE_EMPLOYEE_LOGIN_INFO, nativeQuery =true)
 	int deleteEmployeeLoginInfo(@Param(value ="employeeLoginInfoDto") EmployeeLoginInfoDto employeeLoginInfoDto);
 
+	@Query(value = EmployeeLoginInfoCustomQueries.FIND_EMPLOYEE_LOGIN_INFO_BY_EMPLOYEE_ID, nativeQuery =true)
+	EmployeeLoginInfoDto findByEmployeeId(@Param(value = "employeeId") String employeeId);
+
 }
